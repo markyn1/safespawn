@@ -1,0 +1,51 @@
+{
+  "resolution": [
+    1080,
+    1920
+  ],
+  "media_area": [
+    5,
+    788,
+    1075,
+    1123
+  ],
+  "media_z_index": 1,
+  "title_area": [
+    83,
+    514,
+    920,
+    260
+  ],
+  "title_z_index": 10,
+  "title_font_size": 50,
+  "title_font": "designs/default/fonts/Ubuntu-Light.ttf",
+  "title_color": "#FFFFFF",
+  "subtitle_area": [
+    83,
+    1663,
+    920,
+    200
+  ],
+  "subtitle_z_index": 11,
+  "subtitle_font_size": 52,
+  "subtitle_font": "designs/default/fonts/Ubuntu-Light.ttf",
+  "subtitle_color": "#CCCCCC",
+  "hook_area": [
+    99,
+    890,
+    920,
+    140
+  ],
+  "hook_z_index": 12,
+  "hook_font_size": 38,
+  "hook_color": "#FFFFFF",
+  "static_elements": [],
+  "accent_color": "#FFD700",
+  "background_color": "#0E0E0E",
+  "font_bold": "designs/default/fonts/Ubuntu-Light.ttf",
+  "ai_styles": {
+    "copy": "provocador",
+    "analysis": "viral",
+    "hooks": "chocante"
+  }
+}

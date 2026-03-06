@@ -1,0 +1,41 @@
+{
+    "resolution": [
+        1080,
+        1080
+    ],
+    "title_area": [
+        80,
+        220,
+        920,
+        220
+    ],
+    "subtitle_area": [
+        80,
+        500,
+        920,
+        180
+    ],
+    "hook_area": [
+        80,
+        730,
+        920,
+        120
+    ],
+    "logo_position": [
+        820,
+        40
+    ],
+    "logo_size": 190,
+    "max_title_chars": 40,
+    "max_subtitle_chars": 80,
+    "max_hook_chars": 100,
+    "safe_zone_padding": 80,
+    "title_font_size": 110,
+    "subtitle_font_size": 52,
+    "hook_font_size": 38,
+    "title_color": "#FFFFFF",
+    "subtitle_color": "#CCCCCC",
+    "accent_color": "#FFD700",
+    "font_bold": "designs/default/fonts/Ubuntu-Light.ttf",
+    "font_regular": "designs/default/fonts/Ubuntu-Light.ttf"
+}

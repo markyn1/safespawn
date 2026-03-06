@@ -1,0 +1,23 @@
+active_design: "default"
+active_format: "instagram43"
+
+analysis:
+  max_video_duration: 320
+  frame_interval_seconds: 10
+  max_frames: 16
+  analyze_audio: true
+
+ai:
+  model: "gpt-4o-mini"
+  temperature: 0.7
+  max_tokens: 1200
+  economical_mode: true
+
+layout:
+  adaptation_mode: "ai_limited"  # or: dynamic_resize
+
+
+export:
+  fps: 30
+  bitrate: "high"
+  clean_temp_files: true

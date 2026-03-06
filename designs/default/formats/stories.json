@@ -1,0 +1,104 @@
+{
+  "resolution": [
+    1080,
+    1920
+  ],
+  "media_area": [
+    5,
+    598,
+    1069,
+    984
+  ],
+  "media_z_index": 1,
+  "title_area": [
+    35,
+    380,
+    1026,
+    215
+  ],
+  "title_z_index": 10,
+  "title_font_size": 50,
+  "title_color": "#FFFFFF",
+  "subtitle_area": [
+    46,
+    1585,
+    997,
+    161
+  ],
+  "subtitle_z_index": 11,
+  "subtitle_font_size": 48,
+  "subtitle_color": "#CCCCCC",
+  "hook_area": [
+    38,
+    1545,
+    997,
+    146
+  ],
+  "hook_z_index": 12,
+  "hook_font_size": 36,
+  "hook_color": "#FFFFFF",
+  "static_elements": [
+    {
+      "type": "text",
+      "label": "Texto 1",
+      "value": "Meu Instagram",
+      "x": 290,
+      "y": 210,
+      "font_size": 50,
+      "color": "#FFFFFF",
+      "w": 358,
+      "h": 82,
+      "z_index": 20
+    },
+    {
+      "type": "text",
+      "label": "Texto 2",
+      "value": "@MeuInstagram",
+      "x": 289,
+      "y": 278,
+      "font_size": 36,
+      "color": "#FFFFFF",
+      "w": 300,
+      "h": 87,
+      "z_index": 20
+    },
+    {
+      "type": "image",
+      "label": "Instagram post meme trabalho preto e branco (1).png",
+      "src": "default/assets/user_static/user_2_stories_static_Instagram post meme trabalho preto e branco (1).png",
+      "x": 648,
+      "y": 201,
+      "w": 76,
+      "h": 63,
+      "z_index": 20
+    },
+    {
+      "type": "image",
+      "label": "pngtree-instagram-icon-instagram-logo-png-image_3571406.png",
+      "src": "default/assets/user_static/user_5_stories_static_pngtree-instagram-icon-instagram-logo-png-image_3571406.png",
+      "x": 103,
+      "y": 175,
+      "w": 206,
+      "h": 206,
+      "z_index": 20
+    }
+  ],
+  "accent_color": "#FFD700",
+  "background_color": "#000000",
+  "font_bold": "designs/default/fonts/Ubuntu-Light.ttf",
+  "ai_styles": {
+    "copy": "Persuasivo",
+    "analysis": "Contextual",
+    "hooks": "Curioso"
+  },
+  "bg_area": [
+    0,
+    0,
+    1080,
+    1920
+  ],
+  "bg_z_index": 0,
+  "enable_title": true,
+  "enable_subtitle": true,
+  "enable_hook": false
+}

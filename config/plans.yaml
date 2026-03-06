@@ -1,0 +1,13 @@
+plans:
+  gratuito:
+    limit: 1000
+    price: 0
+  starter:
+    limit: 200000
+    price: 39
+  profissional:
+    limit: 600000
+    price: 97
+  maestro:
+    limit: 10000000
+    price: 497
