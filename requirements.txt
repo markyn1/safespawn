@@ -1,5 +1,22 @@
+# --- API / Web ---
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+
+# --- Banco de dados ---
+sqlalchemy[asyncio]>=2.0.0
+aiomysql>=0.2.0
+pymysql>=1.1.0
+
+# --- Auth / Segurança ---
+python-dotenv>=1.0.0
+passlib[bcrypt]>=1.7.4
+python-jose[cryptography]>=3.3.0
+bcrypt>=4.1.0
+
+# --- IA e mídia ---
 openai>=1.0.0
 Pillow>=10.0.0
 PyYAML>=6.0
 moviepy>=1.0.3
 yt-dlp>=2024.0.0
+python-multipart>=0.0.9

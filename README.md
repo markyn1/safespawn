@@ -17,6 +17,47 @@ Antes de começar, certifique-se de ter instalado:
 3.  **MySQL / MariaDB**
 4.  **FFmpeg** (deve estar no PATH do sistema)
 
+#### Instalar o FFmpeg (Windows)
+
+Sim, o FFmpeg precisa ser instalado manualmente (não é um pacote Python). Opções:
+
+- **winget** (recomendado):
+  ```powershell
+  winget install FFmpeg
+  ```
+  Depois, feche e abra o terminal; o instalador costuma adicionar ao PATH.
+
+- **Chocolatey:** `choco install ffmpeg`
+- **Manual:** baixe em [ffmpeg.org](https://ffmpeg.org/download.html), extraia (ex.: `C:\ffmpeg`) e use a pasta que contém `ffmpeg.exe` (geralmente `C:\ffmpeg\bin`) no PATH.
+
+#### PATH: sessão atual vs permanente (Windows)
+
+**Só nesta sessão do PowerShell:**
+```powershell
+.\scripts\set-path.ps1
+```
+Ou em uma linha (ajuste o caminho do FFmpeg se for outro):
+```powershell
+$env:Path = "$PWD\venv\Scripts;C:\ffmpeg\bin;" + $env:Path
+```
+
+**Deixar o PATH permanente** (para seu usuário; não precisa rodar de novo):
+
+1. **Pelo PowerShell** (execute como usuário normal):
+   ```powershell
+   $venv = (Resolve-Path ".\venv\Scripts").Path
+   $ffmpeg = "C:\ffmpeg\bin"   # ajuste se instalou em outro lugar
+   $current = [Environment]::GetEnvironmentVariable("Path", "User")
+   [Environment]::SetEnvironmentVariable("Path", "$venv;$ffmpeg;$current", "User")
+   ```
+   Feche e abra o terminal para o novo PATH valer.
+
+2. **Pela interface do Windows:**
+   - Tecla Windows → digite "variáveis de ambiente" → "Editar as variáveis de ambiente do sistema"
+   - Em "Variáveis do usuário" clique em "Path" → "Editar" → "Novo"
+   - Adicione: `C:\...\safespawn\venv\Scripts` (caminho completo da pasta do projeto) e a pasta do FFmpeg (ex.: `C:\ffmpeg\bin`)
+   - OK em todas as janelas e abra um terminal novo.
+
 ---
 
 ## ⚙️ Configuração (Setup)
@@ -68,6 +109,7 @@ python main.py
     ```bash
     uvicorn api.main:app --reload
     ```
+    *Se aparecer "uvicorn não é reconhecido", use:* `python -m uvicorn api.main:app --reload`  
     *A API criará o banco `content_creator_db` e as tabelas automaticamente no primeiro boot.*
 
 2.  **Inicie o Frontend:**

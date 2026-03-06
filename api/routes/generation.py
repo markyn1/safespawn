@@ -131,7 +131,8 @@ async def export_generations_zip(
                 ext = os.path.splitext(gen.result_caption_path)[1]
                 zipf.write(gen.result_caption_path, f"{base_name}_caption{ext}")
 
-    return {"download_url": f"http://localhost:8000/api/output/{zip_filename}"}
+    api_base = os.getenv("API_BASE_URL", "http://localhost:8000").rstrip("/")
+    return {"download_url": f"{api_base}/api/output/{zip_filename}"}
 
 @router.post("/test-prompts")
 async def test_prompts(
