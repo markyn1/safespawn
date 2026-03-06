@@ -11,7 +11,9 @@ import os, json, yaml, datetime
 from api.core.database import get_db
 from api.models.user import User
 from api.models.generation import Generation
+from api.models.resolutions import Resolution
 from api.routes.auth import require_superuser
+from api.schemas.resolutions import ResolutionResponse, ResolutionUpdate
 from api.services.tokens import get_user_monthly_usage, get_plan_limits, PLANS_YAML_PATH, _load_plans_yaml
 
 router = APIRouter(prefix="/admin", tags=["admin"])
@@ -131,6 +133,30 @@ async def delete_user(
     await db.delete(user)
     await db.commit()
     return {"ok": True, "deleted": user.username}
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# GESTÃO DE RESOLUÇÕES
+# ─────────────────────────────────────────────────────────────────────────────
+
+@router.patch("/resolutions/{resolution_id}", response_model=ResolutionResponse)
+async def update_resolution(
+    resolution_id: int,
+    payload: ResolutionUpdate,
+    admin: User = Depends(require_superuser),
+    db: AsyncSession = Depends(get_db),
+):
+    """Altera dados de uma resolução. Apenas superusuário."""
+    result = await db.execute(select(Resolution).where(Resolution.id == resolution_id))
+    resolution = result.scalars().first()
+    if not resolution:
+        raise HTTPException(404, "Resolução não encontrada.")
+    data = payload.model_dump(exclude_unset=True)
+    for key, value in data.items():
+        setattr(resolution, key, value)
+    await db.commit()
+    await db.refresh(resolution)
+    return ResolutionResponse.model_validate(resolution)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
