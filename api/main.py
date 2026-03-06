@@ -2,10 +2,17 @@
 api/main.py
 App FastAPI principal e roteamento.
 """
+from pathlib import Path
+try:
+    from dotenv import load_dotenv
+    load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+except ImportError:
+    pass
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import logging
-from api.routes import auth, generation, designs_manager, admin, user_routes
+from api.routes import auth, generation, designs_manager, admin, user_routes, resolutions
 
 logging.basicConfig(level=logging.INFO)
 
@@ -61,6 +68,7 @@ app.include_router(generation.router, prefix="/api")
 app.include_router(designs_manager.router, prefix="")
 app.include_router(admin.router, prefix="/api")
 app.include_router(user_routes.router, prefix="/api")
+app.include_router(resolutions.router, prefix="/api")
 
 
 @app.get("/")
