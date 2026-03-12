@@ -12,7 +12,7 @@ except ImportError:
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import logging
-from api.routes import auth, generation, designs_manager, admin, user_routes, resolutions
+from api.routes import auth, generation, designs_manager, admin, user_routes, resolutions, uploads
 
 logging.basicConfig(level=logging.INFO)
 
@@ -63,13 +63,15 @@ app.add_middleware(
 app.mount("/api/output", StaticFiles(directory="output"), name="output")
 app.mount("/api/designs", StaticFiles(directory="designs"), name="designs")
 
+
+
 app.include_router(auth.router, prefix="/api")
 app.include_router(generation.router, prefix="/api")
 app.include_router(designs_manager.router, prefix="")
 app.include_router(admin.router, prefix="/api")
 app.include_router(user_routes.router, prefix="/api")
 app.include_router(resolutions.router, prefix="/api")
-
+app.include_router(uploads.router, prefix="/api")
 
 @app.get("/")
 def read_root():
